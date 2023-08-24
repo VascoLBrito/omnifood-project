@@ -1,0 +1,292 @@
+/* 
+
+--- 01 tipografia system
+
+Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 /86 / 98 
+
+- Font weights:
+Default: 400
+Medium: 500
+Semi Bold: 600
+Bold: 700
+
+- Line heights:
+Default: 1
+small: 1.05
+medium: 1.2
+paragraf deafult: 1.06
+
+-Letter spacing::after
+0.5px
+0.75px
+
+--- 02 COLORS:
+Primary: #e67e22
+
+- Tints: #fdf2e9 #fae5d3
+- Shades:
+- Accents:
+- Greys:
+#555
+#333
+#6f6f6f
+
+--- 05  Sombras
+
+--- 06 Border-radius
+deafult: 9px
+
+--- 07 White Space
+
+Spacing System (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 63 / 80 / 96 / 128
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%;
+  overflow-x: hidden;
+
+  /* it works on safari, but when the course was made it didnt, so we gonna do it with JAVASCRIPT */
+  /* scroll-behavior: smooth;*/
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+
+  /* ONLY WORKS IF THERES IS NOTHING USING THE ABSOLUTE POSITION IN RELATION TO THE BODY, IF IT IS, YOU  HAVE TO ESPECIFY IT ON THE PARENT ELEMENT BY SAYING - POSITION:RELATIVE;*/
+  overflow-x: hidden;
+}
+
+
+/* ******************** */
+/* General Reausable Component */
+/* ******************** */
+
+
+/* MAKING REAUSABLE GRID ELEMENTS, MAKE A MAIN ONE "GRID" AND THEN MAKE VARIATIONS OF IT ".grid--2-cols" OR ".grid--3-cols" AND ADD THEM TO THE ELEMENT YOU WANT TO HAVE THAT CLASS, REMEMBER THAN IT HAS TO HAVE ALL OF THE CLASSES, THE MAIN ONE AND THE VARIATIONS, OR IT WONT APLIE ALL THE PROPERTIES*/
+
+.container {
+  /* also a good width 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+
+  /* margin-bottom: 9.6rem; */
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+/* BELLOW ARE SOME SETTING THAT WE ADD TO THE CLASS THAT WE WANT THE SETTINGS TO SHOW */
+.grid-center-v {
+  align-items: center;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+
+
+
+/* END OF GRID */
+
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem ;
+}
+
+.heading-tertiary {
+  font-size: 3.0rem;
+  line-height: 2.8rem;
+  margin-bottom: 3.2rem;
+
+}
+
+.subheading {
+  /* We have to make it a block bcs we used a <span> in HTML and a <span> in a inline element */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+
+  /* when we have small uppercase titles, like this case, it looks good to have some letter-spacing */
+  letter-spacing: 1.75px;
+
+}
+
+
+
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+
+  background-color: #e67e22;
+  color: #fff;
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none;
+  /* double on the sizes than the top and bottom */
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  /* Para fazeres transições de cores, usa a propriedade em baixo, tens de utilizar a propriedade de transição no elemento no estado original, btn:link; */
+  transition: all 300ms;
+
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+
+  /* Quando dás a border ao elemento isso faz com que os elementos á volta se movam para cima, para isso não acontecer, utiliza box-shadow: inset 0 0 0 npx e cor que queres */
+  /* border: 3px solid #fff; */
+
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  
+  transition: all 300ms;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  
+  /* DONT DISPLAY BORDER: NONE, IT WILL MESS UP WITH THE SPACE AND DISPLAY OF THE PAGE, IF YOU WANT TO REMOVE THE BORDER JUST MAKI IT TRANSPARENT. */
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* faz com que as bordas dos btns quando focadas não tenham a border azul feia */
+
+*:focus {
+  outline: none;
+ 
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+
+}
+
+
+
+
+
+/* HELPER CLASSES */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+strong {
+  font-weight: 500 ;
+}
